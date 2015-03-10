@@ -5,12 +5,12 @@ var WheelRL: WheelCollider;
 var WheelRR: WheelCollider;
 var maxTorque: float = 50;
 function Start () {
-	rigidbody.centerOfMass.y = -0.9;
+	GetComponent.<Rigidbody>().centerOfMass.y = -0.9;
 }
 
 function FixedUpdate () {
-	WheelRR.motorTorque = maxTorque * Input.GetAxis("Vertical");
-	WheelRL.motorTorque = maxTorque * Input.GetAxis("Vertical");
+	WheelRR.motorTorque = -maxTorque * Input.GetAxis("Vertical");
+	WheelRL.motorTorque = -maxTorque * Input.GetAxis("Vertical");
 	WheelFL.steerAngle = 10 * Input.GetAxis("Horizontal");
 	WheelFR.steerAngle = 10 * Input.GetAxis("Horizontal");
 } 
